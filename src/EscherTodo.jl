@@ -6,11 +6,8 @@ using Escher
 
 # This is an example app to demonstrate Components
 
-abstract Component
-abstract Action
-
 include("item.jl")
-include("todolist.jl")
+include("list.jl")
 
 function load_list()
     TodoList("TODO",
@@ -19,8 +16,8 @@ function load_list()
 end
 
 function app(window)
-    input = Input{Any}(nothing)
-    list = foldl(load_list(), input) do lst, action
+    input = Input(Any, nothing)
+    list = foldp(load_list(), input) do lst, action
         update(lst, action)
     end
     lift(list) do l
