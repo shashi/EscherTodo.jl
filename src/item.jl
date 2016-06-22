@@ -5,7 +5,7 @@ import Escher: view, update
 
 immutable TodoItem <: Component
     done::Bool
-    desc::String
+    desc::AbstractString
 end
 
 const emptyitem = TodoItem(false, "")
@@ -31,7 +31,7 @@ immutable Check <: Action
 end
 
 immutable EditDesc <: Action
-    desc::String
+    desc::AbstractString
 end
 
 update(x::TodoItem, a::Check) = TodoItem(a.state, x.desc)

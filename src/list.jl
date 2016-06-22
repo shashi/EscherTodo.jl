@@ -4,7 +4,7 @@
 # Model
 
 immutable TodoList <: Component # Maybe annotate this as a List conainer model?
-    title::String
+    title::AbstractString
     children::PersistentVector
 end
 
